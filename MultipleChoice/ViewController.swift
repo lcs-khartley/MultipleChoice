@@ -54,18 +54,21 @@ class ViewController: UIViewController {
         //Loop through the student answers to compare with the correct answer
         for (position, character) in correctAnswers.enumerated () {
             
+            
             var index = studentAnswers.index(studentAnswers.startIndex, offsetBy: position)
             
+            //If the character of correctAnswers equals the studentAnswer at the same position, add one to the correct number
             if character == studentAnswers[index] {
                 numberCorrect += 1
             }
             
-            
-            
         }
         
+        let percentCorrect = Double(numberCorrect)/Double(numberOfQuestions)*100
+        let roundedPercentCorrect = String(format: "%.1f", percentCorrect)
         
-        textOutput.text = "The student answered \(numberCorrect) question(s) correct."
+        
+        textOutput.text = "The student answered \(numberCorrect) question(s) to achieve a percent of %\(roundedPercentCorrect)"
         
     }
     
